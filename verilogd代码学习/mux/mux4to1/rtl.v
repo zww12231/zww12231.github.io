@@ -1,0 +1,20 @@
+module mux4to1(
+    input a,b,c,d,s1,s0,
+    output out);
+    wire out1,out2;
+mux2to1 mux2to1_inst1(
+    .a (a),
+    .b (b),
+    .s (s0),
+    .out (out1));
+mux2to1 mux2to1_inst2(
+    .a (c),
+    .b (d),
+    .s (s0),
+    .out (out2));
+mux2to1 mux2to1_inst(
+    .a (out1),
+    .b (out2),
+    .s (s1),
+    .out (out));
+endmodule
